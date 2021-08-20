@@ -79,8 +79,8 @@ git branch -r // 查看远程分支
 git branch [name] // 创建本地分支
 git checkout [name] // 切换分支
 git checkout -b [name] // 创建新分支并切换到该新分支
-git branch -d [name] // 删除分支
-git merge [name] // 合并分支：将[name]分支与当前分支合并
+git branch -d/-D [name] // 删除本地分支
+git merge [name] // 合并分支：将[name]分支与当前分支合并，name可以是本地或远程
 git push // merge执行该命令代码才会改变
 
 git push origin local_branch:master // 提交本地分支作为远程master分支
@@ -94,6 +94,14 @@ git push origin local_branch:remote_branch // 提交本地分支作为远程分�
 ```shell
 git reset --hard head
 ```
+
+如果远程创建好分支，直接执行
+
+```shell
+git branch remote-branch-name
+```
+
+就可以切换到该分支上进行开发
 
 ## 关于合并冲突
 
@@ -126,3 +134,8 @@ git rebase --skip
 ```
 
 然后重新 git push [origin master]
+
+## git merge
+
+参考：[简书@小强唐-merge：合并commits](https://www.jianshu.com/p/1a7e38cdbf76)
+

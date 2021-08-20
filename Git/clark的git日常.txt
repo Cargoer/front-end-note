@@ -1,0 +1,65 @@
+git命令：
+
+git status 查看分支状态
+
+git checkout  dev   切换至dev分支
+
+git branch 查看本地分支
+
+git branch -r 查看远程分支
+
+git switch dev 切换至dev分支
+
+git pull 拉取最新分支（必须要先commit）
+
+git push 推送仓库
+
+git add . 添加新文件（新建文件时候必须操作）
+
+git commit -am "" 提交并且加注释
+
+git merge origin/dev 将分支dev与当前分支进行合并
+
+git checkout -b master1 origin/master    --从远程master拉master1到本地， 如果想从本地拉，去掉origin
+
+git push origin master1 --set-upstream --推送本地的master1到远程， 远程的分支名字master1, 并且远程与本地建立关联关系
+
+git tag 列出标签
+
+git push origin --tags 推送所有标签至远程
+
+git ls-remote --tags 查看远程标签
+
+git stash 缓存
+
+git stash drop 移除缓存
+
+git log  查看提交记录，commitId
+git log --pretty=oneline  单行模式查看提交记录
+
+
+github连接超时情况执行：
+git config --global http.proxy "127.0.0.1:10809"
+git config --global https.proxy "127.0.0.1:10809"
+取消此操作执行：
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+
+当我们在本地分支pull下来后，出现冲突等问题，我们不想要本地代码，想直接使用远程分支覆盖，可以执行以下操作：
+1.git fetch --all
+2.git reset --hard origin/远程分支名     # 将本地的状态回退到和远程的一样 
+
+
+当碰到特殊情况，需要版本回退的时候，需要本地和远程都回退，可以执行以下操作
+1.在vscode,或者git log 找到需要回退的 commitId
+2.在需要回退的分支上，git reset –-hard commitId，执行本地分支回退
+3.git push origin 分支名 --force ，执行本地分支强制覆盖远程分支，就达到了回退的目的
+
+合并冲突的时候，可以尝试逐条比较，将自己更改的合并到最新更改的上去，然后以最新更改的为准
+
+
+git push origin --delete test   可以删除远程分支test
+git branch -d test 可以删除本地分支
+
+
