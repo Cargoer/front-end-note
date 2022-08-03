@@ -1005,3 +1005,7 @@ npm install bootstrap-table
 ### Vue的坑
 
 * npm install失败的解决方法：删掉package-lock.json
+
+## 更多相关博客文章
+
+[博客园@喆星高照 | Vue数据更新但页面没有更新的7种情况，你遇到过几种](https://www.cnblogs.com/houxianzhou/p/13645294.html)

@@ -234,3 +234,19 @@ handleConfirm() {
 | --------------- | -------- | ------------------ |
 | open-type       | String   | 开放能力           |
 | @getphonenumber | Handle   | 获取用户手机号回调 |
+
+## 条件编译
+
+```html
+<!-- #ifdef xxx -->
+<!-- code -->
+<!-- #endif -->
+```
+
+```javascript
+// #ifdef xxx
+// code
+// #endif
+```
+
+以上代码只会在xxx平台进行编译，xxx可取值为H5、MP-WEIXIN、APP-PLUS等

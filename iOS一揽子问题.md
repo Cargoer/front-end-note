@@ -14,8 +14,6 @@
    }
    ```
 
-   
-
 2. input在使用了FastClick变得难以对焦，需要双击才能对焦
 
 3. textarea在使用了FastClick光标始终定位在文字最前面
@@ -23,8 +21,8 @@
    解决方法：对FastClick原型进行修改
 
    ```javascript
-   // 解决iOS input 无法聚焦问题
    FastClick.prototype.focus = function(targetElement) {
+       // 解决iOS input 无法聚焦问题
        targetElement.focus();
        // 解决iOS textarea光标位置问题
        if(pageState.isIOS && targetElement.setSelectionRange && targetElement.value) {
@@ -104,7 +102,21 @@
 </action-sheet>
 ```
 
-
+> [简书@朋_朋 | VUE前端界面在iOS中遇到的坑](https://www.jianshu.com/p/dcdec7572987)
+>
+> 在需要滑动的位置加上如下css代码：
+>
+> -webkit-overflow-scrolling:touch;
+>
+> 以此，界面滑动卡顿问题得以解决，但是，这一行代码会带来一个副作用：
+>
+> 1、在滑动界面之中使用的position：fixed 无法固定下来，会随着界面进行一起滚动
+>
+> 解决方法：将使用的position：fixed（头部导航）写在滑动部位外部，在使用绝对定位进行布局，以此解决问题
+>
+> 2、vue中使用v-if导致的界面初始化之后无法滑动
+>
+> 解决方法：将v-if改成v-show进行展示，解决界面进入之后第一次不能滑动的问题
 
 ## 其他
 
@@ -118,3 +130,14 @@
    ```
 
    
+
+## 相关博客文章
+
+[简书@朋_朋 | VUE前端界面在iOS中遇到的坑](https://www.jianshu.com/p/dcdec7572987)
+
+[CSDN@weixin_39861918 | vue x 兼容iphone_作为前端你必须知道的iPhoneX适配](https://blog.csdn.net/weixin_39861918/article/details/111755173)
+
+[CSDN@Jarvan大熊 | H5页面适配iPhoneX，就是这么简单](https://blog.csdn.net/dx18520548758/article/details/80010358)
+
+[CSDN@ShiyuTim | vue h5 项目适配ios问题](https://blog.csdn.net/weixin_44623040/article/details/103092877)
+

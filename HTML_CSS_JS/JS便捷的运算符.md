@@ -52,3 +52,24 @@ try {
 !!timer && clearTimeout(timer)
 ```
 
+## +
+
+除了可以作为算术运算符之外，还可以将变量转为数字类型，如：
+
+```javascript
+let string_var = '123'
++string_var // 123
+
+string_var = 'oahwoghwag'
++string_var // NaN
+
+let boolean_var = false
++boolean_var // 0
+
+let object_var = {a: 4}
++object_var // NaN
+
++undefined // NaN
+```
+
+运用：lodash源码中有使用到
